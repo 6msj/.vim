@@ -56,18 +56,6 @@ NeoBundleLazy 'majutsushi/tagbar', {
 NeoBundleLazy 'scrooloose/syntastic', {
 \'autoload' : {'filetypes' : ['html', 'javascript', 'php', 'java', 'css', 'xml', 'json', 'cpp', 'h', 'haskell'], },}
 
-NeoBundleLazy 'Twinside/vim-haskellFold', {
-\'autoload' : {'filetypes' : ['hs', 'haskell'], },}
-
-NeoBundleLazy 'vim-scripts/Haskell-Conceal', {
-\'autoload' : {'filetypes' : ['hs', 'haskell'], },}
-
-NeoBundleLazy 'ujihisa/neco-ghc', {
-\'autoload' : {'filetypes' : ['hs', 'haskell'], },}
-
-NeoBundleLazy 'eagletmt/ghcmod-vim', {
-\'autoload' : {'filetypes' : ['hs', 'haskell'], },}
-
 NeoBundleLazy 'tpope/vim-rails', {
 \'autoload' : {'filetypes' : ['ruby', 'rails'], },}
 
@@ -80,7 +68,6 @@ NeoBundleLazy 'mattn/emmet-vim/', {
 NeoBundleLazy 'jakar/vim-json', {
 \'autoload' : {'filetypes' : ['javascript', 'css', 'xml', 'json'], },}
 
-NeoBundle 'bling/vim-airline'
 NeoBundle 'oblitum/rainbow'
 
 filetype plugin indent on
@@ -400,12 +387,6 @@ au BufRead,BufNewFile *.php set ft=php.html
 
 " PLUGIN {{{
 
-" Airline
-set noshowmode
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#hunks#non_zero_only = 1
-let g:airline#extensions#whitespace#enabled = 0
-
 " CommandT
 nnoremap <C-p> :CommandT<cr>
 nnoremap <C-s-b> :CommandTBuffer<cr>
@@ -427,9 +408,6 @@ let g:easytags_python_enabled = 1
 let g:easytags_file = '~/.vim/tags/easytags'
 let g:easytags_cmd = '/usr/local/bin/ctags'
 let g:easytags_updatetime_warn = 0
-
-" GHC Mod
-autocmd BufWritePost *.hs GhcModCheckAndLintAsync
 
 " vim-javascript
 let g:html_indent_inctags = "html,body,head,tbody"

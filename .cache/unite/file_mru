@@ -1,15 +1,30 @@
 0.2.0
+/Users/james/.vim/.vimrc	1384237480
+/Users/james/.dotfiles/.zshrc	1384241135
+/Users/james/Dropbox/FALL_QUARTER/4590_2_work/tcp_client.c	1384229403
+/Users/james/Dropbox/FALL_QUARTER/4590_2_work/udp_client.c	1384229388
+/Users/james/Dropbox/FALL_QUARTER/hw45902/userver.c	1384140320
+/Users/james/Dropbox/FALL_QUARTER/hw45902/tcprcv.c	1384137273
+/Users/james/Dropbox/FALL_QUARTER/hw45902/uclient.c	1384140511
+/Users/james/Dropbox/FALL_QUARTER/hw45902/tcpxmit.c	1384138479
+/Users/james/3590h2.txt	1383169439
+/Users/james/Dropbox/FALL_QUARTER/routesproject/jn_RIP_NETWORK-scenario1-ip_addresses.gdf	1381879637
+/Users/james/Dropbox/FALL_QUARTER/routesproject/jn_RIP_NETWORK-scenario1-ip_routes.gdf	1381879825
+/Users/james/Dropbox/Philosophy.org	1382049200
+/Users/james/Dropbox/FALL_QUARTER/routesproject/JamesRouteProject.py	1382219293
+/Users/james/Dropbox/FALL_QUARTER/routesproject/PathFinder.py	1382039385
+/Users/james/Dropbox/FALL_QUARTER/routesproject/Router.py	1381973611
+/Users/james/.vim/bundle/.neobundle/doc/tcomment.txt	1382038028
+/Users/james/Dropbox/FALL_QUARTER/routesproject/IPAddress.py	1381903071
+/Users/james/Dropbox/FALL_QUARTER/routesproject/Route.py	1381902310
 /Users/james/Developer/Point-of-Sales/Point IPad/Point IPad/HomeViewController.m	1379052566
 /Users/james/Developer/Point-of-Sales/Point IPad/Point IPad/HomeViewController.h	1379052565
-/Users/james/.vim/.vimrc	1379052407
 /Users/james/.vim/.git/COMMIT_EDITMSG	1379052391
 /Users/james/.vim/.git/index	1379052379
 /Users/james/Developer/Javascript/mini_blog/views/index.jade	1379051714
 /Users/james/Developer/js_node_project/app.js	1379051338
 /Users/james/Developer/Javascript/helloworld.js	1379051292
 /private/etc/hosts	1379042086
-/Users/james/.dotfiles/.zshrc	1378866281
-/Users/james/todo	1378582588
 /Users/james/Dropbox/Finance/September2012	1378072626
 /Users/james/Developer/Javascript/mini_blog/views/layout.jade	1377826857
 /Users/james/Developer/Javascript/mini_blog/public/stylesheets/style.styl	1377661005
@@ -28,7 +43,6 @@
 /Users/james/.vim/bundle/ultisnips/UltiSnips/javascript_jasmine.snippets	1377448362
 /Users/james/.vim/bundle/ultisnips/UltiSnips/javascript.snippets	1377448326
 /Users/james/.dotfiles/.tmux.conf	1377447338
-/Users/james/Developer/C-Plus-Plus/Hangman/Hangman.cpp	1377409774
 /Users/james/Developer/C-Plus-Plus/Baccarat/Baccarat.cpp	1377409656
 /Users/james/Developer/Javascript/mixu/simple_messaging/server.js	1377408594
 /Users/james/Developer/Javascript/mixu/simple_messaging/index.html	1377408593
@@ -70,7 +84,6 @@
 /Users/james/Developer/Javascript/tizag/events.html	1374954481
 /Users/james/Developer/Javascript/tizag/while.html	1374954147
 /Users/james/Developer/Javascript/tizag/myjs.js	1374952332
-/Users/james/.vim/bundle/vim-javascript/indent/javascript.vim	1374950533
 /Users/james/Developer/Javascript/tizag/operator_example.html	1374948678
 /Users/james/Developer/C-Plus-Plus/simul.cpp	1374810316
 /Users/james/Developer/Rails/sample_app/app/assets/stylesheets/static_pages.css.scss	1374733787
@@ -152,7 +165,6 @@
 /Users/james/Developer/Python/Algorithms/quicksort.py	1370362678
 /Users/james/Developer/C-Plus-Plus/ShellSim/main.c	1370362089
 /Users/james/Developer/EBSideScroller/Project/main.cpp	1370362057
-/Users/james/Developer/C-Plus-Plus/RandomWriter/RandomWriter.cpp	1370361994
 /Users/james/Developer/C-Plus-Plus/Op-Systems/homework_1/cigarette-smoker.cpp	1370361924
 /Users/james/Developer/Rails/sample_app/spec/models/user_spec.rb	1370361354
 /Users/james/Developer/Rails/sample_app/lib/tasks/sample_data.rake	1370360240
@@ -167,7 +179,6 @@
 /Users/james/Developer/SE Project/Project Code/src/t5_presentation_layer/UserPage.form	1370231314
 /Users/james/Developer/SE Project/Project Code/src/t5_presentation_layer/UserPage.java	1370231284
 /Users/james/Library/Application Support/Sparrow/ja.nguyen@gmail.com.sparrowdb/Cache/INBOX/14710/2/AdminPage.java	1370204175
-/Users/james/Developer/Java/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi	1370151359
 /Users/james/.vim/bundle/unite.vim/autoload/unite/filters/converter_file_directory.vim	1370150807
 /Users/james/.vim/bundle/unite.vim/autoload/unite/filters/converter_default.vim	1370150788
 /Users/james/.rvm/src/ruby-1.9.3-p392/ext/tk/sample/tkextlib/tkHTML/page4/index.html	1370150780
