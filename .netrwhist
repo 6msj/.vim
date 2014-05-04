@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/james/Developer/Javascript/tizag'
 let g:netrw_dirhist_2='/Users/james/Developer/C-Plus-Plus'
 let g:netrw_dirhist_3='/Users/james/Developer/Python/Algorithms'
 let g:netrw_dirhist_4='/Users/james/Developer/C-Plus-Plus/Recursion 3'
 let g:netrw_dirhist_5='/Users/james/Developer/C-Plus-Plus/Recursion 3/Basic Problems'
 let g:netrw_dirhist_6='/Users/james/Dropbox/GRAPHICS/ssg/examples'
+let g:netrw_dirhist_7='/Users/james/.bin'

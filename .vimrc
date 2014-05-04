@@ -27,12 +27,10 @@ NeoBundle 'tpope/vim-ragtag'
 NeoBundle 'vim-scripts/Colour-Sampler-Pack'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'godlygeek/tabular'
 NeoBundle 'xolox/vim-easytags'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'tpope/vim-fugitive', { 'augroup' : 'fugitive' }
-NeoBundle 'SirVer/ultisnips'
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'wincent/Command-T'
@@ -243,7 +241,7 @@ nnoremap <C-\> :pop<cr>
 noremap ; :
 vnoremap ; :
 " Use ; to do ex commands.
-cmap Q :qa!<cr>
+cmap Q qa!<cr>
 " easier way to quit
 cmap w!! w !sudo dd of=%<cr>
 " root authority writing
@@ -449,14 +447,6 @@ let g:syntastic_style_error_symbol   = "s✗"
 let g:syntastic_style_warning_symbol = "s⚠"
 let g:syntastic_mode_map             = { 'passive_filetypes': ['java', 'cpp', 'c', 'python'] }
 
-" Tabular
-nnoremap <Leader>a= :Tabularize /=<CR>
-vnoremap <Leader>a= :Tabularize /=<CR>
-nnoremap <Leader>a: :Tabularize /:\zs<CR>
-vnoremap <Leader>a: :Tabularize /:\zs<CR>
-nnoremap <Leader>a" :Tabularize /"<CR>
-vnoremap <Leader>a" :Tabularize /"<CR>
-
 " TagBar
 let g:tagbar_left=0
 let g:tagbar_width=30
@@ -464,18 +454,11 @@ let g:tagbar_compact=1
 let g:tagbar_singleclick=1
 let g:tagbar_sort=0
 
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsSnippetDirectories=["mysnippets","UltiSnips"]
-let g:UltiSnipsSnippetsDir="~/.vim/mysnippets"
-
 " YouCompleteMe
 autocmd VimEnter * call FindYouCompleteMeConf()
 let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
+let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_semantic_triggers = {
   \ 'c' : ['->', '.'],
@@ -489,25 +472,6 @@ let g:ycm_semantic_triggers = {
   \ 'lua' : ['.', ':'],
   \ 'erlang' : [':'],
   \ }
-
-
-function! g:UltiSnips_Complete()
-    call UltiSnips_ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips_JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 
 " Emmet
 let g:user_emmet_leader_key = '<c-e>'
