@@ -7,7 +7,7 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -35,6 +35,8 @@ NeoBundle 'mhinz/vim-signify'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'wincent/Command-T'
 NeoBundle 'kshenoy/vim-signature'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'terryma/vim-smooth-scroll'
 
 NeoBundle 'Raimondi/delimitMate'
 
@@ -67,6 +69,8 @@ NeoBundleLazy 'jakar/vim-json', {
 \'autoload' : {'filetypes' : ['javascript', 'css', 'xml', 'json'], },}
 
 NeoBundle 'oblitum/rainbow'
+
+call neobundle#end()
 
 filetype plugin indent on
 
@@ -163,14 +167,14 @@ set guioptions-=L  " Remove left-hand scrollbar.
 set showbreak=↪    " Prettier linewraps.
 
 if has('mac')
-    if !has("gui_running")
-        " OSX terminal is slow, so disable a couple things.
-        set noshowmatch         " Don't match parentheses/brackets
-        set nocursorline        " Don't paint cursor line
-        set nocursorcolumn      " Don't paint cursor column
-        let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
-        let html_no_rendering=1 " Don't render italic, bold, links in HTML
-    endif
+    "if !has("gui_running")
+    "    " OSX terminal is slow, so disable a couple things.
+    "    set noshowmatch         " Don't match parentheses/brackets
+    "    set nocursorline        " Don't paint cursor line
+    "    set nocursorcolumn      " Don't paint cursor column
+    "    let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
+    "    let html_no_rendering=1 " Don't render italic, bold, links in HTML
+    "endif
     set guifont=Consolas:h12,Menlo:h12
     set shell=/bin/bash
     set clipboard^=unnamed  " Tmux copy paste integration.
@@ -189,28 +193,16 @@ set background=dark
 if has('gui_running')
     if strftime("%H") < 4
         colorscheme fruity
-    elseif strftime("%H") < 8
-        colorscheme hybrid
     elseif strftime("%H") < 12
-        colorscheme solarized
-    elseif strftime("%H") < 16
-        colorscheme molokai
-    elseif strftime("%H") < 20
         colorscheme luna
     else
-        colorscheme badwolf
+        colorscheme solarized
     endif
 else
-    if strftime("%H") < 4
+    if strftime("%H") < 12
         colorscheme molokai
-    elseif strftime("%H") < 8
-        colorscheme candycode
-    elseif strftime("%H") < 12
-        colorscheme xoria256
-    elseif strftime("%H") < 16
+    elseif strftime("%H") < 18
         colorscheme fruity
-    elseif strftime("%H") < 20
-        colorscheme hybrid
     else
         colorscheme badwolf
     endif
@@ -229,11 +221,6 @@ set laststatus=2
 inoremap <C-U> <C-G>u<C-U>
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
-nnoremap <C-k> <C-W>k
-nnoremap <C-j> <C-W>j
-nnoremap <C-l> <C-W>l
-nnoremap <C-h> <C-W>h
-" Maps the control + movement keys to moving around window splits.
 nnoremap <C-\> :pop<cr>
 " Pop back to previous definition.
 
@@ -245,17 +232,6 @@ cmap Q qa!<cr>
 " easier way to quit
 cmap w!! w !sudo dd of=%<cr>
 " root authority writing
-vnoremap <F2> zf
-" Creates Folds.
-map <F2> za
-" Opens or closes Folds .
-map <F3> zR
-" Opens all Folds.
-map <F4> zM
-" Closes all Folds.
-nnoremap <F8> :UndotreeToggle<CR>
-map <F9> :sign unplace *<CR>
-" Remove signs on the left side.
 nnoremap Y y$
 " y$ yanks to the end of the line.
 nnoremap D d$
@@ -269,31 +245,21 @@ nnoremap Q gq
 vnoremap < <gv
 vnoremap > >gv
 " Reselect text after identing
-nnoremap <silent> <2-LeftMouse> :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hls<cr>
-" Double Click with the Mouse selects all occurences in the buffer.
-:com! -nargs=1 -complete=help H h <args> <bar> only
-" Use :H to open a help file in a full buffer.
 nnoremap ' `
 nnoremap ` '
 " Closer way to get to where you were last.
-nnoremap <TAB> za
 
 " Leader
-let mapleader=","
+nnoremap <space> <nop>
+let mapleader=" "
 let maplocalleader=" "
 " change the mapLeader from \ to ,
 nnoremap <Leader>t :TagbarToggle<CR>
 " toggles the tagbar with tt
 nnoremap <Leader><space> :noh<cr>
 " map ,space to clear search results
-nnoremap <Leader>q <C-w><C-v><C-w>l :e ~/scratch.vim<cr>
-" opens a pad to do macro testing
-nnoremap <Leader>Q :so ~/scratch.vim<cr>
-" source the macro file
 nnoremap <Leader>v :e ~/.vimrc<cr>
 " open vimrc in another split
-nnoremap <Leader>V :silent! so $MYVIMRC<CR>
-" source vimrc
 nnoremap <Leader>wv :vsplit<cr>
 nnoremap <Leader>wh :split<cr>
 " vertical/horizontal splits
@@ -303,6 +269,10 @@ nnoremap <Leader>= m`gg=G``
 " Indent the whole file and return to original position
 nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Edit file, starting in same directory as current file
+
+nnoremap <Leader>u :UndotreeToggle<CR>
+nnoremap <Leader>f :CommandT<CR>
+nnoremap <Leader>b :CommandTBuffer<CR>
 
 " }}}
 
@@ -330,42 +300,6 @@ au FileType c,cpp,java,ruby,php,css,html,eruby,javascript set foldmethod=syntax
 au FileType python,c,cpp,java,ruby,php,css,html,eruby,javascript set foldlevel=4
 
 "}}}
-
-" BUILD & COMPILE {{{
-
-" Use make in the same directory.
-autocmd FileType c,cpp cabbrev make call UseMakeSameDirForC()<CR><CR>
-
-" Default Make
-nnoremap <Leader>mc :make <bar> :cw<cr>
-" Compile the current file and open a quickfix on errors.
-nnoremap <Leader>mk :make %< <bar> :cw<cr>
-" Regular compile with no quickfix.
-nnoremap <Leader>mm :make %< <cr>
-
-" C/C++
-" These won't run properly if there's a file to be opened since they would be opening files from the directory vim was launched from.
-autocmd FileType c,cpp nnoremap <C-c> :!./%<<cr>
-" runs c++ files *ctrl-c*
-autocmd FileType c,cpp nnoremap <f5> :!g++ % -o %< && ./%< <cr><cr>
-
-" Shell
-autocmd FileType sh nnoremap <C-c> :!./%<CR>
-autocmd FileType ruby nnoremap <C-c> :!ruby %<CR>
-
-" Python
-if has('mac')
-    autocmd FileType python nnoremap <C-c> :!/usr/local/bin/python %<cr>
-    " option to use :pyfile % instead
-    set ofu=syntaxcomplete#Complete
-else
-    " python
-    autocmd FileType python nnoremap <Leader>p2 :!/usr/bin/env python2 %
-    " runs python 2 files *ctrl-p*
-    autocmd FileType python nnoremap <Leader>p3 :!/usr/bin/env python3 %<cr>
-endif
-
-" }}}
 
 " WEB {{{
 
@@ -504,19 +438,15 @@ set tags+=~/.vim/tags/cpp_src
 set tags+=~/.vim/tags/sdl
 set tags+=~/.vim/tags/easytags
 
+" Smooth Scroll 
+noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+
 " }}}
 
 " FUNCTIONS {{{
-
-" CD to current file's directory, execute make there and then cd back to Root.
-function! UseMakeSameDirForC()
-    redir => rootPath
-        pwd
-    redir end
-    lcd %:p:h
-    make
-    cd `=rootPath`
-endfunction
 
 function! FindYouCompleteMeConf()
     if &ft == 'c'
