@@ -33,10 +33,10 @@ NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'tpope/vim-fugitive', { 'augroup' : 'fugitive' }
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'wincent/Command-T'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'terryma/vim-smooth-scroll'
+NeoBundle 'ctrlpvim/ctrlp.vim'
 
 NeoBundle 'Raimondi/delimitMate'
 
@@ -271,8 +271,10 @@ nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Edit file, starting in same directory as current file
 
 nnoremap <Leader>u :UndotreeToggle<CR>
-nnoremap <Leader>f :CommandT<CR>
-nnoremap <Leader>b :CommandTBuffer<CR>
+
+nnoremap <Leader>f :CtrlP<CR>
+nnoremap <Leader>b :CtrlPBuffer<CR>
+nnoremap <Leader>r :CtrlPMRU<CR>
 
 " }}}
 
@@ -318,17 +320,6 @@ au BufRead,BufNewFile *.php set ft=php.html
 " }}}
 
 " PLUGIN {{{
-
-" CommandT
-nnoremap <C-p> :CommandT<cr>
-nnoremap <C-s-b> :CommandTBuffer<cr>
-nnoremap <Leader>ctf :CommandTFlush<cr>
-let g:CommandTMaxFiles=10000
-let g:CommandTMaxDepth=6
-let g:CommandTScanDotDirectories=1
-let g:CommandTMaxHeight=20
-let g:CommandTMaxCachedDirectories=5
-let g:CommandTCancelMap=['<C-x>', '<C-c>']
 
 " DelimitMate
 let g:delimitMate_expand_cr = 1
