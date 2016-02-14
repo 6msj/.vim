@@ -275,6 +275,11 @@ nnoremap <Leader>u :UndotreeToggle<CR>
 nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>r :CtrlPMRU<CR>
+nnoremap <Leader>p :CtrlPMixed<CR>
+
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gl :Glog<CR>
 
 " }}}
 
