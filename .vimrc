@@ -35,7 +35,6 @@ NeoBundle 'mhinz/vim-signify'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'terryma/vim-smooth-scroll'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 
 NeoBundle 'Raimondi/delimitMate'
@@ -433,12 +432,6 @@ set completeopt=menuone
 set tags+=~/.vim/tags/cpp_src
 set tags+=~/.vim/tags/sdl
 set tags+=~/.vim/tags/easytags
-
-" Smooth Scroll 
-noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
 " }}}
 
