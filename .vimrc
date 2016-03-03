@@ -335,6 +335,7 @@ let g:easytags_python_enabled = 1
 let g:easytags_file = '~/.vim/tags/easytags'
 let g:easytags_cmd = '/usr/local/bin/ctags'
 let g:easytags_updatetime_warn = 0
+let g:easytags_async = 1
 
 " vim-javascript
 let g:html_indent_inctags = "html,body,head,tbody"
