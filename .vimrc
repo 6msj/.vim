@@ -166,14 +166,14 @@ set guioptions-=L  " Remove left-hand scrollbar.
 set showbreak=↪    " Prettier linewraps.
 
 if has('mac')
-    "if !has("gui_running")
-    "    " OSX terminal is slow, so disable a couple things.
-    "    set noshowmatch         " Don't match parentheses/brackets
-    "    set nocursorline        " Don't paint cursor line
-    "    set nocursorcolumn      " Don't paint cursor column
-    "    let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
-    "    let html_no_rendering=1 " Don't render italic, bold, links in HTML
-    "endif
+    if !has("gui_running")
+        " OSX terminal is slow, so disable a couple things.
+        set noshowmatch         " Don't match parentheses/brackets
+        set nocursorline        " Don't paint cursor line
+        set nocursorcolumn      " Don't paint cursor column
+        let loaded_matchparen=1 " Don't load matchit.vim (paren/bracket matching)
+        let html_no_rendering=1 " Don't render italic, bold, links in HTML
+    endif
     set guifont=Consolas:h12,Menlo:h12
     set shell=/bin/bash
     set clipboard^=unnamed  " Tmux copy paste integration.
