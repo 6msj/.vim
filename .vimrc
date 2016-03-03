@@ -246,7 +246,6 @@ nnoremap ' `
 nnoremap ` '
 " Closer way to get to where you were last.
 
-unmap <C-q>
 nnoremap <C-q>k <C-W>k
 nnoremap <C-q>j <C-W>j
 nnoremap <C-q>l <C-W>l
