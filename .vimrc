@@ -248,6 +248,17 @@ nnoremap ' `
 nnoremap ` '
 " Closer way to get to where you were last.
 
+unmap <C-q>
+nnoremap <C-q>k <C-W>k
+nnoremap <C-q>j <C-W>j
+nnoremap <C-q>l <C-W>l
+nnoremap <C-q>h <C-W>h
+nnoremap <C-q>- :split<CR>
+nnoremap <C-q><bar> :vsplit<CR>
+nnoremap <C-q>\ :vsplit<CR>
+" Tmux like bindings
+
+
 " Leader
 nnoremap <space> <nop>
 let mapleader=" "
