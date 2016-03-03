@@ -3,78 +3,65 @@
 set nocompatible    " no compatibility with vi
 filetype off        " required for vundle
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim " path to dein.vim
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+call dein#begin(expand('~/.vim/dein')) " plugins' root path
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim', {
+    \ 'build': {
+    \     'windows': 'tools\\update-dll-mingw',
+    \     'cygwin': 'make -f make_cygwin.mak',
+    \     'mac': 'make -f make_mac.mak',
+    \     'linux': 'make',
+    \     'unix': 'gmake',
+    \    },
+    \ })
 
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#add('Valloric/YouCompleteMe', {
+     \ 'build'      : {
+        \ 'mac'     : './install.py',
+        \ 'unix'    : './install.py',
+        \ 'windows' : 'install.py',
+        \ 'cygwin'  : './install.py'
+        \ },
+     \ })
 
-NeoBundle 'Shougo/vimproc', {
-      \ 'build' : {
-      \     'windows' : 'make -f make_mingw32.mak',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
+call dein#add('sheerun/vim-polyglot')
 
-NeoBundle 'sheerun/vim-polyglot'
-NeoBundle 'vim-scripts/CSApprox'
-NeoBundle 'vim-scripts/ScrollColors'
-NeoBundle 'tpope/vim-ragtag'
-NeoBundle 'vim-scripts/Colour-Sampler-Pack'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'xolox/vim-easytags'
-NeoBundle 'xolox/vim-misc'
-NeoBundle 'Shougo/vimproc.vim'
-NeoBundle 'tpope/vim-fugitive', { 'augroup' : 'fugitive' }
-NeoBundle 'mhinz/vim-signify'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'kshenoy/vim-signature'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'ctrlpvim/ctrlp.vim'
+call dein#add('vim-scripts/CSApprox')
+call dein#add('vim-scripts/ScrollColors')
+call dein#add('tpope/vim-ragtag')
+call dein#add('vim-scripts/Colour-Sampler-Pack')
+call dein#add('tpope/vim-surround')
+call dein#add('tpope/vim-repeat')
+call dein#add('xolox/vim-easytags')
+call dein#add('xolox/vim-misc')
+call dein#add('mhinz/vim-signify')
+call dein#add('kshenoy/vim-signature')
+call dein#add('scrooloose/nerdcommenter')
+call dein#add('ctrlpvim/ctrlp.vim')
+call dein#add('Raimondi/delimitMate')
+call dein#add('oblitum/rainbow')
 
-NeoBundle 'Raimondi/delimitMate'
+call dein#add('tpope/vim-fugitive', {'on_cmd': 'Gblame'})
+call dein#add('tpope/vim-endwise', {'on_i' : 1})
+call dein#add('mbbill/undotree', {'on_cmd': 'UndotreeToggle'})
+call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
+call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
+call dein#add('scrooloose/syntastic', {'on_ft': ['html', 'javascript', 'php', 'java', 'css', 'xml', 'json', 'cpp', 'h', 'haskell']})
+call dein#add('tpope/vim-rails', {'on_ft': ['ruby', 'rails']})
+call dein#add('marijnh/tern_for_vim', {'on_ft': ['javascript']})
+call dein#add('mattn/emmet-vim', {'on_ft': ['html', 'js', 'css', 'xml']})
+call dein#add('jakar/vim-json', {'on_ft': ['javascript', 'css', 'xml', 'json']})
 
-NeoBundleLazy 'tpope/vim-endwise', {
-\'autoload' : { 'insert' : 1, },}
-
-NeoBundleLazy 'mbbill/undotree', {
-\'autoload' : {'commands' : 'UndotreeToggle' },}
-
-NeoBundleLazy 'scrooloose/nerdtree', {
-\'augroup' : 'NERDTree',
-\'autoload' : {'commands' : 'NERDTreeToggle' },}
-
-NeoBundleLazy 'majutsushi/tagbar', {
-\'autoload' : {'commands' : 'TagbarToggle' },}
-
-NeoBundleLazy 'scrooloose/syntastic', {
-\'autoload' : {'filetypes' : ['html', 'javascript', 'php', 'java', 'css', 'xml', 'json', 'cpp', 'h', 'haskell'], },}
-
-NeoBundleLazy 'tpope/vim-rails', {
-\'autoload' : {'filetypes' : ['ruby', 'rails'], },}
-
-NeoBundleLazy 'marijnh/tern_for_vim', {
-\'autoload' : {'filetypes' : ['javascript', ], },}
-
-NeoBundleLazy 'mattn/emmet-vim/', {
-\'autoload' : {'filetypes' : ['html', 'js', 'css', 'xml'], },}
-
-NeoBundleLazy 'jakar/vim-json', {
-\'autoload' : {'filetypes' : ['javascript', 'css', 'xml', 'json'], },}
-
-NeoBundle 'oblitum/rainbow'
-
-call neobundle#end()
+call dein#end()
 
 filetype plugin indent on
 
 " Installation check.
-NeoBundleCheck
+if dein#check_install()
+    call dein#install()
+endif
 
 " }}}
 
