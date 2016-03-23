@@ -53,7 +53,7 @@ call dein#add('tpope/vim-rails', {'on_ft': ['ruby', 'rails']})
 call dein#add('marijnh/tern_for_vim', {'on_ft': ['javascript']})
 call dein#add('mattn/emmet-vim', {'on_ft': ['html', 'js', 'css', 'xml']})
 call dein#add('jakar/vim-json', {'on_ft': ['javascript', 'css', 'xml', 'json']})
-
+call dein#add('bronson/vim-visual-star-search', {'on_v' : 1})
 call dein#end()
 
 filetype plugin indent on
