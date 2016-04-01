@@ -182,6 +182,7 @@ if has('gui_running')
     elseif strftime("%H") < 12
         colorscheme luna
     else
+        set background=light
         colorscheme solarized
     endif
 else
