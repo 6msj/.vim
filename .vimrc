@@ -30,28 +30,18 @@ call dein#add('sheerun/vim-polyglot')
 
 call dein#add('vim-scripts/CSApprox')
 call dein#add('vim-scripts/ScrollColors')
-call dein#add('tpope/vim-ragtag')
 call dein#add('vim-scripts/Colour-Sampler-Pack')
 call dein#add('tpope/vim-surround')
 call dein#add('tpope/vim-commentary')
 call dein#add('tpope/vim-repeat')
 call dein#add('xolox/vim-easytags')
 call dein#add('xolox/vim-misc')
-call dein#add('mhinz/vim-signify')
-call dein#add('kshenoy/vim-signature')
-call dein#add('ctrlpvim/ctrlp.vim')
 call dein#add('Raimondi/delimitMate')
 call dein#add('oblitum/rainbow')
 
 call dein#add('tpope/vim-fugitive', {'on_cmd': 'Gblame'})
-call dein#add('tpope/vim-endwise', {'on_i' : 1})
-call dein#add('mbbill/undotree', {'on_cmd': 'UndotreeToggle'})
 call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
 call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
-call dein#add('scrooloose/syntastic', {'on_ft': ['html', 'javascript', 'php', 'java', 'css', 'xml', 'json', 'cpp', 'h', 'haskell']})
-call dein#add('tpope/vim-rails', {'on_ft': ['ruby', 'rails']})
-call dein#add('marijnh/tern_for_vim', {'on_ft': ['javascript']})
-call dein#add('mattn/emmet-vim', {'on_ft': ['html', 'js', 'css', 'xml']})
 call dein#add('jakar/vim-json', {'on_ft': ['javascript', 'css', 'xml', 'json']})
 call dein#add('bronson/vim-visual-star-search', {'on_v' : 1})
 call dein#end()
@@ -136,17 +126,10 @@ syntax on           " Color files automatically.
 set cursorline      " Highlight the current line.
 
 if v:version >= 704
-    set number
-    set relativenumber
-    au WinEnter * :setlocal relativenumber
-    au WinEnter * :setlocal number
     set regexpengine=1 " Old Regex Engine
-else
-    set relativenumber  " Numbers are not absolute.
 endif
 
-au WinEnter * :setlocal relativenumber
-au WinLeave * :setlocal norelativenumber
+set number
 
 set guioptions-=r  " Remove right-hand scrollbar.
 set guioptions-=L  " Remove left-hand scrollbar.
@@ -179,11 +162,8 @@ set background=dark
 if has('gui_running')
     if strftime("%H") < 4
         colorscheme fruity
-    elseif strftime("%H") < 12
-        colorscheme luna
     else
-        set background=light
-        colorscheme solarized
+        colorscheme luna
     endif
 else
     if strftime("%H") < 12
@@ -210,9 +190,6 @@ inoremap <C-U> <C-G>u<C-U>
 " so that you can undo CTRL-U after inserting a line break.
 
 " Regular
-noremap ; :
-vnoremap ; :
-" Use ; to do ex commands.
 cmap Q qa!<cr>
 " easier way to quit
 cmap w!! w !sudo dd of=%<cr>
@@ -238,11 +215,11 @@ nnoremap <C-q>k <C-W>k
 nnoremap <C-q>j <C-W>j
 nnoremap <C-q>l <C-W>l
 nnoremap <C-q>h <C-W>h
+nnoremap <C-q>x <C-W>c
 nnoremap <C-q>- :split<CR>
 nnoremap <C-q><bar> :vsplit<CR>
 nnoremap <C-q>\ :vsplit<CR>
 " Tmux like bindings
-
 
 " Leader
 nnoremap <space> <nop>
@@ -262,16 +239,6 @@ nnoremap <Leader>n :NERDTreeToggle<cr>
 " Toggles NerdTree
 nnoremap <Leader>= m`gg=G``
 " Indent the whole file and return to original position
-nnoremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-" Edit file, starting in same directory as current file
-
-nnoremap <Leader>u :UndotreeToggle<CR>
-
-nnoremap <Leader>f :CtrlP<CR>
-nnoremap <Leader>b :CtrlPBuffer<CR>
-nnoremap <Leader>r :CtrlPMRU<CR>
-nnoremap <Leader>p :CtrlPMixed<CR>
-
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gl :Glog<CR>
@@ -354,25 +321,6 @@ let g:NERDTreeShowLineNumbers=1
 " Rainbow Parens
 let g:rainbow_active = 1
 
-" Signify
-let g:signify_mapping_next_hunk = '<nop>'
-let g:signify_mapping_prev_hunk = '<nop>'
-let g:signify_mapping_toggle_highlight = '<nop>'
-let g:signify_mapping_toggle = '<nop>'
-
-" Syntastic
-let g:syntastic_check_on_open        = 1 " run syntastic on open and save
-let g:syntastic_enable_balloons      = 1 " display errors in tool tips
-let g:syntastic_enable_highlighting  = 1 " mark errors with syntax highlighting
-let g:syntastic_auto_jump            = 0 " jump to the first error on save
-let g:syntastic_auto_loc_list        = 2 " open and close automatically
-let g:syntastic_enable_signs         = 1 " errors to the left
-let g:syntastic_error_symbol         = "✗"
-let g:syntastic_warning_symbol       = "⚠"
-let g:syntastic_style_error_symbol   = "s✗"
-let g:syntastic_style_warning_symbol = "s⚠"
-let g:syntastic_mode_map             = { 'passive_filetypes': ['java', 'cpp', 'c', 'python'] }
-
 " TagBar
 let g:tagbar_left=0
 let g:tagbar_width=30
@@ -399,16 +347,12 @@ let g:ycm_semantic_triggers = {
   \ 'erlang' : [':'],
   \ }
 
-" Emmet
-let g:user_emmet_leader_key = '<c-e>'
-
 " }}}
 
 " COMPLETION {{{
 
 " Various
 set omnifunc=syntaxcomplete#Complete " Default Completion
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
@@ -426,8 +370,6 @@ autocmd FileType haskell set omnifunc=necoghc#omnifunc
 set completeopt=menuone
 
 " Tags
-set tags+=~/.vim/tags/cpp_src
-set tags+=~/.vim/tags/sdl
 set tags+=~/.vim/tags/easytags
 
 " }}}
