@@ -1,57 +1,28 @@
 " PACKAGES {{{
 
 set nocompatible    " no compatibility with vi
-filetype off        " required for vundle
 
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim " path to dein.vim
-
-call dein#begin(expand('~/.vim/dein')) " plugins' root path
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {
-    \ 'build': {
-    \     'windows': 'tools\\update-dll-mingw',
-    \     'cygwin': 'make -f make_cygwin.mak',
-    \     'mac': 'make -f make_mac.mak',
-    \     'linux': 'make',
-    \     'unix': 'gmake',
-    \    },
-    \ })
-
-call dein#add('Valloric/YouCompleteMe', {
-     \ 'build'      : {
-        \ 'mac'     : './install.py',
-        \ 'unix'    : './install.py',
-        \ 'windows' : 'install.py',
-        \ 'cygwin'  : './install.py'
-        \ },
-     \ })
-
-call dein#add('sheerun/vim-polyglot')
-
-call dein#add('vim-scripts/CSApprox')
-call dein#add('vim-scripts/ScrollColors')
-call dein#add('vim-scripts/Colour-Sampler-Pack')
-call dein#add('tpope/vim-surround')
-call dein#add('tpope/vim-commentary')
-call dein#add('tpope/vim-repeat')
-call dein#add('xolox/vim-easytags')
-call dein#add('xolox/vim-misc')
-call dein#add('Raimondi/delimitMate')
-call dein#add('oblitum/rainbow')
-
-call dein#add('tpope/vim-fugitive', {'on_cmd': 'Gblame'})
-call dein#add('scrooloose/nerdtree', {'on_cmd': 'NERDTreeToggle'})
-call dein#add('majutsushi/tagbar', {'on_cmd': 'TagbarToggle'})
-call dein#add('jakar/vim-json', {'on_ft': ['javascript', 'css', 'xml', 'json']})
-call dein#add('bronson/vim-visual-star-search', {'on_v' : 1})
-call dein#end()
+call plug#begin('~/.vim/plugged')
+Plug 'Valloric/YouCompleteMe'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-scripts/CSApprox'
+Plug 'vim-scripts/ScrollColors'
+Plug 'vim-scripts/Colour-Sampler-Pack'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+Plug 'Raimondi/delimitMate'
+Plug 'oblitum/rainbow'
+Plug 'bronson/vim-visual-star-search'
+Plug 'tpope/vim-fugitive', {'on': 'Gblame'}
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
+Plug 'jakar/vim-json', {'for': ['javascript', 'css', 'xml', 'json']}
+call plug#end()
 
 filetype plugin indent on
-
-" Installation check.
-if dein#check_install()
-    call dein#install()
-endif
 
 " }}}
 
