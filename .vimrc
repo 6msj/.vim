@@ -2,8 +2,8 @@
 
 set nocompatible    " no compatibility with vi
 
-call plug#begin('~/.vim/plugged')
-Plug 'Valloric/YouCompleteMe'
+call plug#begin('~/.vim/bundle')
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-scripts/CSApprox'
 Plug 'vim-scripts/ScrollColors'
