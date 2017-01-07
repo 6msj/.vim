@@ -57,7 +57,9 @@ autocmd FileType * setlocal formatoptions-=cro " Disable automatic comments.
 " Mouse
 if has('mouse')
     set mouse=a
-    set ttymouse=xterm2
+    if !has('nvim')
+        set ttymouse=xterm2
+    endif
 endif
 
 " }}}
