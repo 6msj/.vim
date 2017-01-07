@@ -16,8 +16,8 @@ Plug 'xolox/vim-misc'
 Plug 'Raimondi/delimitMate'
 Plug 'oblitum/rainbow'
 Plug 'bronson/vim-visual-star-search'
-Plug 'tpope/vim-fugitive', {'on': 'Gblame'}
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'jakar/vim-json', {'for': ['javascript', 'css', 'xml', 'json']}
 call plug#end()
@@ -161,8 +161,6 @@ inoremap <C-U> <C-G>u<C-U>
 " so that you can undo CTRL-U after inserting a line break.
 
 " Regular
-cmap Q qa!<cr>
-" easier way to quit
 cmap w!! w !sudo dd of=%<cr>
 " root authority writing
 nnoremap Y y$
@@ -173,24 +171,12 @@ nnoremap C c$
 " c$ changes to the end of the line.
 imap jk <Esc>
 " esc returns to command mode.
-nnoremap Q gq
-" Don't use Ex mode, use Q for formatting.
 vnoremap < <gv
 vnoremap > >gv
 " Reselect text after identing
 nnoremap ' `
 nnoremap ` '
 " Closer way to get to where you were last.
-
-nnoremap <C-q>k <C-W>k
-nnoremap <C-q>j <C-W>j
-nnoremap <C-q>l <C-W>l
-nnoremap <C-q>h <C-W>h
-nnoremap <C-q>x <C-W>c
-nnoremap <C-q>- :split<CR>
-nnoremap <C-q><bar> :vsplit<CR>
-nnoremap <C-q>\ :vsplit<CR>
-" Tmux like bindings
 
 " Leader
 nnoremap <space> <nop>
@@ -214,22 +200,18 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gl :Glog<CR>
 
+nnoremap <Leader>k <C-W>k
+nnoremap <Leader>j <C-W>j
+nnoremap <Leader>l <C-W>l
+nnoremap <Leader>h <C-W>h
+nnoremap <Leader><backspace> <C-W>c
+nnoremap <Leader>- :split<CR>
+nnoremap <Leader><bar> :vsplit<CR>
+nnoremap <Leader>\ :vsplit<CR>
+
 " }}}
 
 " FOLDING {{{
-
-function! NeatFoldText() "{{{2
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction
-set foldtext=NeatFoldText()
-" }}}2
 
 set foldenable      " Turn on folding
 au FileType vim set foldmethod=marker
@@ -306,17 +288,17 @@ let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_semantic_triggers = {
-  \ 'c' : ['->', '.'],
-  \ 'objc' : ['->', '.'],
-  \ 'ocaml' : ['.', '#'],
-  \ 'cpp,objcpp' : ['->', '.', '::'],
-  \ 'perl' : ['->'],
-  \ 'php' : ['->', '::'],
-  \ 'cs,css,haskell,java,javascript,d,ruby' : ['.'],
-  \ 'python,perl6,scala,vb,elixir,go' : ['.'],
-  \ 'lua' : ['.', ':'],
-  \ 'erlang' : [':'],
-  \ }
+            \ 'c' : ['->', '.'],
+            \ 'objc' : ['->', '.'],
+            \ 'ocaml' : ['.', '#'],
+            \ 'cpp,objcpp' : ['->', '.', '::'],
+            \ 'perl' : ['->'],
+            \ 'php' : ['->', '::'],
+            \ 'cs,css,haskell,java,javascript,d,ruby' : ['.'],
+            \ 'python,perl6,scala,vb,elixir,go' : ['.'],
+            \ 'lua' : ['.', ':'],
+            \ 'erlang' : [':'],
+            \ }
 
 " }}}
 
