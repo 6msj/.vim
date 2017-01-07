@@ -191,9 +191,6 @@ nnoremap <Leader><space> :noh<cr>
 " map ,space to clear search results
 nnoremap <Leader>v :e ~/.vimrc<cr>
 " open vimrc in another split
-nnoremap <Leader>wv :vsplit<cr>
-nnoremap <Leader>wh :split<cr>
-" vertical/horizontal splits
 nnoremap <Leader>n :NERDTreeToggle<cr>
 " Toggles NerdTree
 nnoremap <Leader>= m`gg=G``
