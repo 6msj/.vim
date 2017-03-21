@@ -171,8 +171,6 @@ nnoremap D d$
 " d$ deletes to the end of the line.
 nnoremap C c$
 " c$ changes to the end of the line.
-imap jk <Esc>
-" esc returns to command mode.
 vnoremap < <gv
 vnoremap > >gv
 " Reselect text after identing
@@ -281,7 +279,6 @@ let g:tagbar_singleclick=1
 let g:tagbar_sort=0
 
 " YouCompleteMe
-autocmd VimEnter * call FindYouCompleteMeConf()
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
@@ -323,19 +320,5 @@ set completeopt=menuone
 
 " Tags
 set tags+=~/.vim/tags/easytags
-
-" }}}
-
-" FUNCTIONS {{{
-
-function! FindYouCompleteMeConf()
-    if &ft == 'c'
-        let g:ycm_global_ycm_extra_conf = "~/.vim/.c/ycm_extra_conf.py" 
-    elseif &ft == 'objcpp' || &ft == 'objc'
-        let g:ycm_global_ycm_extra_conf = "~/.vim/.obj/ycm_extra_conf.py"
-    else  
-        let g:ycm_global_ycm_extra_conf = "~/.vim/.cpp/ycm_extra_conf.py"
-    endif
-endfunction
 
 " }}}
