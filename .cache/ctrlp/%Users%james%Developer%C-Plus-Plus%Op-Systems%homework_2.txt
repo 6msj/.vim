@@ -1,7 +1,0 @@
-os
-os.cpp
-alt.txt
-makefile
-text.txt
-os.dSYM/Contents/Info.plist
-os.dSYM/Contents/Resources/DWARF/os
