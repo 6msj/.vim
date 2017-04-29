@@ -6,20 +6,13 @@ call plug#begin('~/.vim/bundle')
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/csapprox'
-Plug 'vim-scripts/ScrollColors'
 Plug 'vim-scripts/Colour-Sampler-Pack'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
 Plug 'Raimondi/delimitMate'
 Plug 'oblitum/rainbow'
-Plug 'bronson/vim-visual-star-search'
-Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
-Plug 'jakar/vim-json', {'for': ['javascript', 'css', 'xml', 'json']}
 call plug#end()
 
 filetype plugin indent on
@@ -193,9 +186,6 @@ nnoremap <Leader>n :NERDTreeToggle<cr>
 " Toggles NerdTree
 nnoremap <Leader>= m`gg=G``
 " Indent the whole file and return to original position
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gl :Glog<CR>
 
 nnoremap <Leader>k <C-W>k
 nnoremap <Leader>j <C-W>j
