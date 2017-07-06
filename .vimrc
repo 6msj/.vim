@@ -47,6 +47,9 @@ set undodir=~/.vim/undo
 
 autocmd FileType * setlocal formatoptions-=cro " Disable automatic comments.
 
+" https://superuser.com/questions/359580/error-adding-cronjobs-in-mac-os-x-lion
+autocmd filetype crontab setlocal nobackup nowritebackup
+
 " Mouse
 if has('mouse')
     set mouse=a
