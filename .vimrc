@@ -179,9 +179,6 @@ nnoremap C c$
 vnoremap < <gv
 vnoremap > >gv
 " Reselect text after identing
-nnoremap ' `
-nnoremap ` '
-" Closer way to get to where you were last.
 
 " Leader
 nnoremap <space> <nop>
@@ -190,8 +187,6 @@ let maplocalleader=" "
 " change the mapLeader from \ to ,
 nnoremap <Leader>t :TagbarToggle<CR>
 " toggles the tagbar with tt
-nnoremap <Leader><space> :noh<cr>
-" map ,space to clear search results
 nnoremap <Leader>v :e ~/.vimrc<cr>
 " open vimrc in another split
 nnoremap <Leader>n :NERDTreeToggle<cr>
