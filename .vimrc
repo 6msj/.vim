@@ -3,7 +3,6 @@
 set nocompatible    " no compatibility with vi
 
 call plug#begin('~/.vim/bundle')
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'sheerun/vim-polyglot'
 Plug 'godlygeek/csapprox'
 Plug 'vim-scripts/Colour-Sampler-Pack'
@@ -12,7 +11,6 @@ Plug 'tpope/vim-commentary'
 Plug 'Raimondi/delimitMate'
 Plug 'oblitum/rainbow'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 call plug#end()
 
 filetype plugin indent on
@@ -247,11 +245,6 @@ let g:easytags_cmd = '/usr/local/bin/ctags'
 let g:easytags_updatetime_warn = 0
 let g:easytags_async = 1
 
-" vim-javascript
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
-
 " NerdTree
 " Close Vim if only NerdTree is left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -267,33 +260,6 @@ let g:NERDTreeShowLineNumbers=1
 
 " Rainbow Parens
 let g:rainbow_active = 1
-
-" TagBar
-let g:tagbar_left=0
-let g:tagbar_width=30
-let g:tagbar_compact=1
-let g:tagbar_singleclick=1
-let g:tagbar_sort=0
-
-" YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_semantic_triggers = {
-            \ 'c' : ['->', '.'],
-            \ 'objc' : ['->', '.'],
-            \ 'ocaml' : ['.', '#'],
-            \ 'cpp,objcpp' : ['->', '.', '::'],
-            \ 'perl' : ['->'],
-            \ 'php' : ['->', '::'],
-            \ 'cs,css,haskell,java,javascript,d,ruby' : ['.'],
-            \ 'python,perl6,scala,vb,elixir,go' : ['.'],
-            \ 'lua' : ['.', ':'],
-            \ 'erlang' : [':'],
-            \ }
-
-" }}}
 
 " COMPLETION {{{
 
